@@ -1,2 +1,2 @@
 # GenericMusicClient
-GenericMusicClient for Netease , qq ,KuGou and etc.
+GenericMusicClient for Netease , qq ,KuGou, etc.
