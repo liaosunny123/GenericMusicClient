@@ -1,4 +1,4 @@
-﻿namespace MusicClient.Model.Instance;
+﻿namespace MusicClient.Model;
 
 public class Comment
 {
@@ -20,5 +20,5 @@ public class Comment
     /// <summary>
     /// 评论
     /// </summary>
-    public string CommentMessage { get; init; }
+    public string CommentContent { get; init; }
 }

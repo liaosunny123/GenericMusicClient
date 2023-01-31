@@ -1,18 +1,18 @@
 ﻿using MusicClient.Model;
-using MusicClient.Model.Instance;
+using MusicClient.Enums;
 using MusicClient.Platform;
 
 namespace MusicClient;
 
 public class MusicClient
 {
-    private GenericClient PrepareGenericClient(Model.Platform platform)
+    private GenericClient PrepareGenericClient(PlatformType platform)
         => platform switch
         {
-            Model.Platform.Netease => Netease.Instance,
-            Model.Platform.KuGou => KuGou.Instance,
-            Model.Platform.QQ => Qq.Instance,
-            Model.Platform.XiaMi => XiaMi.Instance
+            PlatformType.Netease => Netease.Instance,
+            PlatformType.KuGou => KuGou.Instance,
+            PlatformType.QQ => QQ.Instance,
+            PlatformType.XiaMi => XiaMi.Instance
         };
 
     public SongInfo GetById(string id)
@@ -30,17 +30,17 @@ public class MusicClient
         throw new NotImplementedException();
     }
 
-    public SongInfo GetById(Model.Platform platform, string id)
+    public SongInfo GetById(PlatformType platform, string id)
     {
         throw new NotImplementedException();
     }
 
-    public List<SongInfo> GetByName(Model.Platform platform, string name)
+    public List<SongInfo> GetByName(PlatformType platform, string name)
     {
         throw new NotImplementedException();
     }
 
-    public bool GetCursor(Model.Platform platform, out IMusicListCursor musicListCursor)
+    public bool GetCursor(PlatformType platform, out IMusicListCursor musicListCursor)
     {
         throw new NotImplementedException();
     }

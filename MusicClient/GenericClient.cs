@@ -1,6 +1,6 @@
-﻿using MusicClient.Model.Instance;
+﻿using MusicClient.Model;
 
-namespace MusicClient.Model;
+namespace MusicClient;
 
 /// <summary>
 /// Client 接口

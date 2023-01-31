@@ -1,18 +1,19 @@
-﻿using System.Text.Json.Nodes;
+using System.Text.Json.Nodes;
+using MusicClient.Enums;
 using MusicClient.Model;
-using MusicClient.Model.Instance;
 using MusicClient.Utils;
 using RestSharp;
 
 namespace MusicClient.Platform;
 
-public class Qq : GenericClient
+public class QQ : GenericClient
 {
-    private static readonly Qq instance = new Qq();
-    private Qq(){}
-    
-    public static Qq Instance => instance;
-    
+    private QQ()
+    {
+    }
+
+    public static QQ Instance { get; } = new QQ();
+
     public override SongInfo GetById(string id)
     {
         throw new NotImplementedException();
@@ -20,7 +21,7 @@ public class Qq : GenericClient
 
     private string GetDirectUrlByMid(string mid)
     {
-        
+        return null;
     }
     
     public override List<SongInfo> GetByName(string name)
@@ -44,7 +45,7 @@ public class Qq : GenericClient
                             .EndAddJsonSubParameter()
                         .EndAddJsonSubParameter()
                     .EndAddJsonParameter()
-                .Excute().Content!;
+                .Execute().Content!;
         JsonNode jsonNode = JsonObject.Parse(response);
         JsonArray jsonArray = jsonNode["music.search.SearchCgiService"]["data"]["body"]["song"]["list"].AsArray();
         List<SongInfo> songInfos = new List<SongInfo>();
@@ -52,10 +53,8 @@ public class Qq : GenericClient
         {
             SongInfo songInfo = new SongInfo()
             {
-                Platform = Model.Platform.QQ,
-                Author = "12",
-                Cd = String.IsNullOrWhiteSpace(node["album"]["name"].ToString()) ? null :  node["album"]["name"].ToString(),
-                Id = 
+                Platform = PlatformType.QQ,
+                Album = String.IsNullOrWhiteSpace(node["album"]["name"].ToString()) ? null :  node["album"]["name"].ToString()
             };
         }
         return null;

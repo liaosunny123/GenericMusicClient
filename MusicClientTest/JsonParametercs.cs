@@ -8,7 +8,7 @@ public class Tests
     [Test]
     public void JsonParameterTest()
     {
-        Qq.Instance.GetByName("寂寞烟火");
+        QQ.Instance.GetByName("寂寞烟火");
         Assert.Pass();
     }
 }
