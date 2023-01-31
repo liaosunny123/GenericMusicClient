@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="RestSharp" Version="109.0.0-preview.1" />
+    </ItemGroup>
+
 </Project>
