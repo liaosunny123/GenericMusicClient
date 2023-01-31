@@ -1,15 +1,15 @@
 ﻿using MusicClient.Model;
-using MusicClient.Model.Instance;
 
 namespace MusicClient.Platform;
 
 public class XiaMi : GenericClient
 {
-    private static readonly XiaMi instance = new XiaMi();
-    private XiaMi(){}
-    
-    public static XiaMi Instance => instance;
-    
+    private XiaMi()
+    {
+    }
+
+    public static XiaMi Instance { get; } = new XiaMi();
+
     public override SongInfo GetById(string id)
     {
         throw new NotImplementedException();

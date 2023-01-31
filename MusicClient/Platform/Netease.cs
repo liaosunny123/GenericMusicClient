@@ -1,15 +1,15 @@
 ﻿using MusicClient.Model;
-using MusicClient.Model.Instance;
 
 namespace MusicClient.Platform;
 
 public class Netease : GenericClient
 {
-    private static readonly Netease instance = new Netease();
-    private Netease(){}
-    
-    public static Netease Instance => instance;
-    
+    private Netease()
+    {
+    }
+
+    public static Netease Instance { get; } = new Netease();
+
     public override SongInfo GetById(string id)
     {
         throw new NotImplementedException();

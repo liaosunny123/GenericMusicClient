@@ -1,15 +1,15 @@
 ﻿using MusicClient.Model;
-using MusicClient.Model.Instance;
 
 namespace MusicClient.Platform;
 
-public class Qq : GenericClient
+public class QQ : GenericClient
 {
-    private static readonly Qq instance = new Qq();
-    private Qq(){}
-    
-    public static Qq Instance => instance;
-    
+    private QQ()
+    {
+    }
+
+    public static QQ Instance { get; } = new QQ();
+
     public override SongInfo GetById(string id)
     {
         throw new NotImplementedException();

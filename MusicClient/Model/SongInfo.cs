@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Nodes;
+﻿using MusicClient.Enums;
 
-namespace MusicClient.Model.Instance;
+namespace MusicClient.Model;
 
 /// <summary>
 /// 歌曲实例
@@ -25,7 +25,7 @@ public class SongInfo
     /// <summary>
     /// 歌曲附属的 MV 地址
     /// </summary>
-    public string? TiedVideoUrl { get; init; }
+    public string? MVUrl { get; init; }
 
     /// <summary>
     /// 纯文本歌词
@@ -40,22 +40,22 @@ public class SongInfo
     /// <summary>
     /// 歌曲的作者
     /// </summary>
-    public string Author { get; init; }
+    public string[] Author { get; init; }
 
     /// <summary>
     /// 歌曲的专辑
     /// </summary>
-    public string Cd { get; init; }
+    public string Album { get; init; }
 
     /// <summary>
     /// 歌曲的所属平台
     /// </summary>
-    public Platform Platform { get; init; }
+    public PlatformType Platform { get; init; }
 
     /// <summary>
     /// 歌曲时长
     /// </summary>
-    public TimeSpan SongeLength { get; init; }
+    public TimeSpan SongLength { get; init; }
 
     /// <summary>
     /// 歌曲的评论，尽量提供

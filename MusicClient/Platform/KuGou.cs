@@ -1,17 +1,14 @@
 ﻿using MusicClient.Model;
-using MusicClient.Model.Instance;
 
 namespace MusicClient.Platform;
 
 public class KuGou : GenericClient
 {
-    private static readonly KuGou instance = new KuGou();
-
     private KuGou()
     {
     }
 
-    public static KuGou Instance => instance;
+    public static KuGou Instance { get; } = new KuGou();
 
     public override SongInfo GetById(string id)
     {
