@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicClient", "MusicClient\MusicClient.csproj", "{52AD3E96-0A3D-4741-AEF6-431B259D6DC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicClientTest", "MusicClientTest\MusicClientTest.csproj", "{8C065BB0-A598-44BB-9A35-A6255602BEBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{52AD3E96-0A3D-4741-AEF6-431B259D6DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52AD3E96-0A3D-4741-AEF6-431B259D6DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52AD3E96-0A3D-4741-AEF6-431B259D6DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C065BB0-A598-44BB-9A35-A6255602BEBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C065BB0-A598-44BB-9A35-A6255602BEBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C065BB0-A598-44BB-9A35-A6255602BEBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C065BB0-A598-44BB-9A35-A6255602BEBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

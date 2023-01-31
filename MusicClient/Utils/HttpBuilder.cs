@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.Json;
 using RestSharp;
 
 namespace MusicClient.Utils;
@@ -7,6 +8,7 @@ public class HttpBuilder
 {
     private RestClient _restClient;
     private RestRequest _restRequest;
+
     /// <summary>
     /// 靶 Url
     /// </summary>
@@ -16,7 +18,7 @@ public class HttpBuilder
         _restClient = new RestClient(url);
     }
 
-    public HttpBuilder DefPath(string path,Method method)
+    public HttpBuilder DefPath(string path, Method method)
     {
         _restRequest = new RestRequest(path, method);
         return this;
@@ -24,13 +26,13 @@ public class HttpBuilder
 
     public HttpBuilder DefUa(string ua)
     {
-        this._restRequest.AddHeader("User-Agent",ua);
+        this._restRequest.AddHeader("User-Agent", ua);
         return this;
     }
 
     public HttpBuilder DefReferer(string @ref)
     {
-        this._restRequest.AddHeader("referer",@ref);
+        this._restRequest.AddHeader("Referer", @ref);
         return this;
     }
 
@@ -44,13 +46,13 @@ public class HttpBuilder
 
     public HttpBuilder DefUrlCookies(string cookies)
     {
-        this._restRequest.AddHeader("cookie",cookies);
+        this._restRequest.AddHeader("cookie", cookies);
         return this;
     }
 
     public HttpBuilder DefAuthority(string authority)
     {
-        this._restRequest.AddHeader("authority",authority);
+        this._restRequest.AddHeader("authority", authority);
         return this;
     }
 
@@ -62,7 +64,20 @@ public class HttpBuilder
 
     public HttpBuilder AddJsonBody(Object o)
     {
-        this._restRequest.AddBody(o);
+        JsonSerializerOptions jso = new JsonSerializerOptions();
+        jso.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+        this._restRequest.AddJsonBody(JsonSerializer.Serialize(o, jso));
+        return this;
+    }
+
+    public JsonParameter DefJsonParameter()
+    {
+        return new JsonParameter(_restRequest, this);
+    }
+
+    public HttpBuilder DefHost(string host)
+    {
+        this._restRequest.AddHeader("Host", host);
         return this;
     }
 

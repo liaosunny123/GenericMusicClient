@@ -45,7 +45,7 @@ public class SongInfo
     /// <summary>
     /// 歌曲的专辑
     /// </summary>
-    public string Cd { get; init; }
+    public string? Cd { get; init; }
 
     /// <summary>
     /// 歌曲的所属平台
