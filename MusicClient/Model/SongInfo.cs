@@ -20,7 +20,7 @@ public class SongInfo
     /// <summary>
     /// 歌曲封面的 Url 直链地址
     /// </summary>
-    public string CoverUrl { get; init; }
+    public string? CoverUrl { get; init; }
 
     /// <summary>
     /// 歌曲附属的 MV 地址
@@ -30,7 +30,7 @@ public class SongInfo
     /// <summary>
     /// 纯文本歌词
     /// </summary>
-    public string RawLyrics { get; init; }
+    public string? RawLyrics { get; init; }
 
     /// <summary>
     /// 歌曲的名字
@@ -55,7 +55,7 @@ public class SongInfo
     /// <summary>
     /// 歌曲时长
     /// </summary>
-    public TimeSpan SongLength { get; init; }
+    public TimeSpan? SongLength { get; init; }
 
     /// <summary>
     /// 歌曲的评论，尽量提供

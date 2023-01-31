@@ -10,7 +10,7 @@ public class XiaMi : GenericClient
 
     public static XiaMi Instance { get; } = new XiaMi();
 
-    public override SongInfo GetById(string id)
+    public override SongInfo? GetById(string id)
     {
         throw new NotImplementedException();
     }
@@ -20,7 +20,7 @@ public class XiaMi : GenericClient
         throw new NotImplementedException();
     }
 
-    public override bool GetCursor(out IMusicListCursor musicListCursor)
+    public override bool GetCursor(out IMusicListCursor musicListCursor,string name)
     {
         throw new NotImplementedException();
     }

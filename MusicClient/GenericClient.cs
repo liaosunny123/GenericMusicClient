@@ -12,7 +12,7 @@ public abstract class GenericClient
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public abstract SongInfo GetById(string id);
+    public abstract SongInfo? GetById(string id);
 
     /// <summary>
     /// 根据 Name 获取音乐的信息
@@ -27,5 +27,5 @@ public abstract class GenericClient
     /// </summary>
     /// <param name="musicListCursor"></param>
     /// <returns></returns>
-    public abstract bool GetCursor(out IMusicListCursor musicListCursor);
+    public abstract bool GetCursor(out IMusicListCursor musicListCursor,string name);
 }

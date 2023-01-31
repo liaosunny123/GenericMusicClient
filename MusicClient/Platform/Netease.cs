@@ -10,7 +10,7 @@ public class Netease : GenericClient
 
     public static Netease Instance { get; } = new Netease();
 
-    public override SongInfo GetById(string id)
+    public override SongInfo? GetById(string id)
     {
         throw new NotImplementedException();
     }
@@ -20,7 +20,7 @@ public class Netease : GenericClient
         throw new NotImplementedException();
     }
 
-    public override bool GetCursor(out IMusicListCursor musicListCursor)
+    public override bool GetCursor(out IMusicListCursor musicListCursor,string name)
     {
         throw new NotImplementedException();
     }
