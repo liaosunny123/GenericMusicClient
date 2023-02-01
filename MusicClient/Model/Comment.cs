@@ -22,6 +22,11 @@ public abstract class Comment
     /// </summary>
     public string CommentContent { get; private set; }
 
+    /// <summary>
+    /// 子评论
+    /// </summary>
+    public Comment? SubComment { get; private set; }
+
     public abstract bool Next();
 
     public abstract void NavigateTo(int pageIndex);

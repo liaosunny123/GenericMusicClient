@@ -1,6 +1,7 @@
 using System.Text;
 using System.Text.Json.Nodes;
 using MusicClient.Enums;
+using MusicClient.Interface;
 using MusicClient.Model;
 using MusicClient.Utils;
 using RestSharp;
@@ -51,8 +52,8 @@ public class QQ : GenericClient
                 .DefPath("/cgi-bin/musicu.fcg?format=json&data=%7B%22req_0%22%3A%7B%22module%22%3A%22" +
                          "vkey.GetVkeyServer%22%2C%22method%22%3A%22CgiGetVkey%22%2C%22param%22%3A%7B%22" +
                          "guid%22%3A%22358840384%22%2C%22songmid%22%3A%5B%22" + mid + "%22%5D%2C%22songtype%22%3A%5B" +
-                         "0%5D%2C%22uin%22%3A%221443481947%22%2C%22loginflag%22%3A1%2C%22platform%22%3A%2" +
-                         "220%22%7D%7D%2C%22comm%22%3A%7B%22uin%22%3A%2218585073516%22%2C%22format%22%3A%" +
+                         "0%5D%2C%22uin%22%3A%22114514%22%2C%22loginflag%22%3A1%2C%22platform%22%3A%2" +
+                         "220%22%7D%7D%2C%22comm%22%3A%7B%22uin%22%3A%221919810%22%2C%22format%22%3A%" +
                          "22json%22%2C%22ct%22%3A24%2C%22cv%22%3A0%7D%7D", Method.Get)
                 .DefHost("u.y.qq.com")
                 .DefDefaultEdgeUa()

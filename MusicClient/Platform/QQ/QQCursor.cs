@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Nodes;
 using MusicClient.Enums;
+using MusicClient.Interface;
 using MusicClient.Platform;
 
 namespace MusicClient.Model;

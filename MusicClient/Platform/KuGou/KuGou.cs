@@ -1,4 +1,5 @@
-﻿using MusicClient.Model;
+﻿using MusicClient.Interface;
+using MusicClient.Model;
 
 namespace MusicClient.Platform;
 
