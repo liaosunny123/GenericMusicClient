@@ -49,3 +49,77 @@ public class NeteaseSearchRequest
         });
     }
 }
+
+public class NeteaseSongDetailRequest
+{
+    private static string _sid;
+
+    public NeteaseSongDetailRequest(string songId)
+    {
+        _sid = songId;
+    }
+
+    public virtual string BuildJsonString()
+    {
+        return "{\"id\":\"{$SongId}\",\"c\":\"[{\\\"id\\\":\\\"{$SongId}\\\"}]\",\"csrf_token\":\"\"}".Replace(
+            "{$SongId}", _sid);
+    }
+}
+
+public class NeteaseLyricRequest
+{
+    private static string _sid;
+
+    public NeteaseLyricRequest(string songId)
+    {
+        _sid = songId;
+    }
+
+    public string id { get; set; }
+    public int lv = -1;
+    public int tv = -1;
+    public string csrf_token { get; }
+
+    public virtual string BuildJsonString()
+    {
+        return JsonSerializer.Serialize(this, new JsonSerializerOptions()
+        {
+            WriteIndented = false,
+            DefaultIgnoreCondition = JsonIgnoreCondition.Never,
+        });
+    }
+}
+
+public class NeteaseMVideoRequest
+{
+    public string id { get; init; }
+
+    public NeteaseMVideoRequest(string id)
+    {
+        this.id = id;
+    }
+
+    public virtual string BuildJsonString()
+    {
+        return JsonSerializer.Serialize(this, new JsonSerializerOptions()
+        {
+            WriteIndented = false,
+            DefaultIgnoreCondition = JsonIgnoreCondition.Never,
+        });
+    }
+}
+
+public class NeteaseMVideoUrlRequest
+{
+    public string id { get; init; }
+    public string r { get; init; }
+
+    public virtual string BuildJsonString()
+    {
+        return JsonSerializer.Serialize(this, new JsonSerializerOptions()
+        {
+            WriteIndented = false,
+            DefaultIgnoreCondition = JsonIgnoreCondition.Never,
+        });
+    }
+}

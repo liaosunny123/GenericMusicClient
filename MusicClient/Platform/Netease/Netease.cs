@@ -2,6 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using MusicClient.Enums;
+using MusicClient.Interface;
 using MusicClient.Model;
 using MusicClient.Utils;
 using RestSharp;
@@ -18,12 +19,13 @@ public class Netease : GenericClient
 
     public static Netease Instance { get; } = new Netease();
 
-    public override SongInfo GetById(string id)
+    public override async Task<SongInfo?> GetById(string id)
     {
-        throw new NotImplementedException();
+        return GetMusicInfo(id).Result;
     }
 
-    public override List<SongInfo> GetByName(string name)
+
+    public override async Task<List<SongInfo>> GetByName(string name)
     {
         return Search(name).Result;
     }
@@ -75,5 +77,36 @@ public class Netease : GenericClient
         }
 
         return result;
+    }
+
+
+    public async Task<SongInfo> GetMusicInfo(string id)
+    {
+        if (string.IsNullOrWhiteSpace(id))
+        {
+            return new NeteaseSongInfo();
+        }
+
+        var e = Crypto.NeteaseEncrypt(new NeteaseSongDetailRequest(id).BuildJsonString());
+
+        var r = await _httpBuilder.DefPath("/weapi/v3/song/detail", Method.Post)
+            .AddQueryParameter("params", e["params"])
+            .AddQueryParameter("encSecKey", e["encSecKey"])
+            .ExecuteAsync();
+
+        var json = JsonNode.Parse(r.Content);
+        return new NeteaseSongInfo
+        {
+            Id = json["songs"][0]["id"].ToString(),
+            Name = json["songs"][0]["name"].ToString(),
+            Album = json["songs"][0]["al"]["name"].ToString(),
+            AlbumId = json["songs"][0]["al"]["id"].ToString(),
+            CoverUrl = json["songs"][0]["al"]["picUrl"].ToString(),
+            Platform = PlatformType.Netease,
+            Author = (from i in json["songs"][0]["ar"].AsArray()
+                select i["name"].ToString()).ToArray(),
+            DirectUrl = $"https://music.163.com/song/media/outer/url?id={json["songs"][0]["id"]}.mp3",
+            MVId = ((json["songs"][0]["mv"].ToString() == "0") ? "-1" : json["songs"][0]["mv"].ToString())
+        };
     }
 }
