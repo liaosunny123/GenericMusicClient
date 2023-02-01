@@ -2,30 +2,25 @@
 
 public abstract class Comment
 {
-    private string id;
-    private string profileImg;
-    private string nickName;
-    private string commentContent;
-
     /// <summary>
     /// 评论者 Id
     /// </summary>
-    public string Id => id;
+    public string Id { get; private set; }
 
     /// <summary>
     /// 平台头像
     /// </summary>
-    public string ProfileImg => profileImg;
+    public string ProfileImg { get; private set; }
 
     /// <summary>
     /// 平台名称
     /// </summary>
-    public string NickName => nickName;
+    public string NickName { get; private set; }
 
     /// <summary>
     /// 评论
     /// </summary>
-    public string CommentContent => commentContent;
+    public string CommentContent { get; private set; }
 
     public abstract bool Next();
 
