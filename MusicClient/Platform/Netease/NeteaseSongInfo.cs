@@ -107,11 +107,12 @@ public class NeteaseSongInfo : SongInfo
             return null;
         }
 
-        var e = Crypto.NeteaseEncrypt(new NeteaseMVideoUrlRequest()
-        {
-            id = Id,
-            r = VideoQualityEnumConverter.ToNetease(vtype)
-        }.BuildJsonString());
+        var e = Crypto.NeteaseEncrypt(
+            new NeteaseMVideoUrlRequest()
+            {
+                id = MVId,
+                r = int.Parse(VideoQualityEnumConverter.ToNetease(vtype))
+            }.BuildJsonString());
 
         var r = await _httpBuilder.DefPath("/weapi/song/enhance/play/mv/url", Method.Post)
             .AddQueryParameter("params", e["params"])

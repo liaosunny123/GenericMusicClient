@@ -1,4 +1,16 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=49855750_002D7f81_002D4bb2_002Dbf11_002D0b08dcd92828/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="NeteaseGetLyric" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8C065BB0-A598-44BB-9A35-A6255602BEBF::net6.0::MusicClientTest.NeteaseTest.NeteaseGetLyric&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8C065BB0-A598-44BB-9A35-A6255602BEBF::net6.0::MusicClientTest.NeteaseTest.NeteaseGetMVideoTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=57bdc3df_002De567_002D4ec2_002Db68b_002Da4d291deb3bd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="NeteaseGetLyric #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8C065BB0-A598-44BB-9A35-A6255602BEBF::net6.0::MusicClientTest.NeteaseTest.NeteaseGetLyric&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8C065BB0-A598-44BB-9A35-A6255602BEBF::net6.0::MusicClientTest.NeteaseTest.NeteaseGetMVideoTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	
 	
 	

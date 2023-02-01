@@ -68,17 +68,16 @@ public class NeteaseSongDetailRequest
 
 public class NeteaseLyricRequest
 {
-    private static string _sid;
-
     public NeteaseLyricRequest(string songId)
     {
-        _sid = songId;
+        id = songId;
     }
 
-    public string id { get; set; }
-    public int lv = -1;
-    public int tv = -1;
-    public string csrf_token { get; }
+    public string id { get; }
+    public int lv { get; } = -1;
+    public int tv { get; } = -1;
+    public int rv { get; } = -1;
+    public int kv { get; } = -1;
 
     public virtual string BuildJsonString()
     {
@@ -112,7 +111,7 @@ public class NeteaseMVideoRequest
 public class NeteaseMVideoUrlRequest
 {
     public string id { get; init; }
-    public string r { get; init; }
+    public int r { get; init; }
 
     public virtual string BuildJsonString()
     {

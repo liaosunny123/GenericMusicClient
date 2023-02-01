@@ -32,9 +32,27 @@ public class NeteaseTest
     public void NeteaseGetByIDTest()
     {
         string id = "1333199956";
-        global::MusicClient.MusicClient mc = new global::MusicClient.MusicClient(PlatformType.Netease);
+        MusicClient mc = new MusicClient(PlatformType.Netease);
         SongInfo r = mc.GetById(id).Result;
         TestContext.Out.WriteLine(r.Name + ":" + r.CoverUrl);
         Assert.Pass();
+    }
+
+    [Test]
+    public void NeteaseGetLyric()
+    {
+        string id = "1333199956";
+        MusicClient mc = new MusicClient(PlatformType.Netease);
+        TestContext.Out.WriteLine(mc.GetById(id).Result.GetRawLyrics(LyricType.Origin).Result);
+        TestContext.Out.WriteLine(mc.GetById(id).Result.GetRawLyrics(LyricType.Translation).Result);
+    }
+
+    [Test]
+    public void NeteaseGetMVideoTest()
+    {
+        string id = "1333199956";
+        MusicClient mc = new MusicClient(PlatformType.Netease);
+        TestContext.Out.WriteLine(mc.GetById(id).Result.GetMVUrl(VideoType.WebUrl).Result);
+        TestContext.Out.WriteLine(mc.GetById(id).Result.GetMVUrl(VideoType.X1080P).Result);
     }
 }
