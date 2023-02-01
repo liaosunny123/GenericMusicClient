@@ -26,6 +26,11 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=631e5133_002Da85b_002D45a5_002D8f8f_002Db6b9b98ab9c1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from JsonParametercs.cs #18" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;8C065BB0-A598-44BB-9A35-A6255602BEBF/f:JsonParametercs.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=668fc015_002Ddca4_002D4d3f_002Db83c_002D6e5462f2d3c3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="NeteaseSearchTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8C065BB0-A598-44BB-9A35-A6255602BEBF::net6.0::MusicClientTest.NeteaseTest.NeteaseSearchTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=709e8083_002D6849_002D4f57_002D913d_002D0f519b875d64/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from JsonParametercs.cs #22" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;8C065BB0-A598-44BB-9A35-A6255602BEBF/f:JsonParametercs.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>

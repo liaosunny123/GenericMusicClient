@@ -6,7 +6,7 @@ namespace MusicClient.Utils;
 
 public class HttpBuilder
 {
-    private readonly RestClient _client;
+    private RestClient _client;
     private RestRequest _request;
 
     /// <summary>
@@ -16,6 +16,18 @@ public class HttpBuilder
     public HttpBuilder(string url)
     {
         _client = new RestClient(url);
+    }
+
+    private void ResetRequest()
+    {
+        _request = new RestRequest();
+    }
+
+    public void ResetAll(string baseUrl)
+    {
+        _client.Dispose();
+        _client = new RestClient(baseUrl);
+        ResetRequest();
     }
 
     public HttpBuilder DefPath(string path, Method method)
