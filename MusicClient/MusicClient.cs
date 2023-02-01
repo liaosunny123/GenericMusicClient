@@ -6,42 +6,40 @@ namespace MusicClient;
 
 public class MusicClient
 {
+    private GenericClient _genericClient;
+
+    public MusicClient(PlatformType platformType)
+    {
+        this._genericClient = PrepareGenericClient(platformType);
+    }
+    
     private GenericClient PrepareGenericClient(PlatformType platform)
         => platform switch
         {
             PlatformType.Netease => Netease.Instance,
             PlatformType.KuGou => KuGou.Instance,
             PlatformType.QQ => QQ.Instance,
-            PlatformType.XiaMi => XiaMi.Instance
+            PlatformType.XiaMi => XiaMi.Instance,
+            _ => throw new NotSupportedException("Do not support this type")
         };
 
     public SongInfo GetById(string id)
     {
-        throw new NotImplementedException();
+        return this._genericClient.GetById(id);
     }
 
     public List<SongInfo> GetByName(string name)
     {
-        throw new NotImplementedException();
+        return this._genericClient.GetByName(name);
     }
 
-    public bool GetCursor(out IMusicListCursor musicListCursor)
+    public bool GetCursor(out IMusicListCursor musicListCursor,string name)
     {
-        throw new NotImplementedException();
+        return this._genericClient.GetCursor(out musicListCursor,name);
     }
 
-    public SongInfo GetById(PlatformType platform, string id)
+    public void SetPlatform(PlatformType platformType)
     {
-        throw new NotImplementedException();
-    }
-
-    public List<SongInfo> GetByName(PlatformType platform, string name)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool GetCursor(PlatformType platform, out IMusicListCursor musicListCursor)
-    {
-        throw new NotImplementedException();
+        this._genericClient = PrepareGenericClient(platformType);
     }
 }

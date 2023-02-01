@@ -31,18 +31,14 @@ public class QQ : GenericClient
         if (jsonNode["code"].ToString() != "0") return null;
         if (jsonNode["req_0"]["code"].ToString() != "0") return null;
         JsonNode node = jsonNode["req_0"]["data"]["track_info"];
-        SongInfo songInfo = new SongInfo()
+        SongInfo songInfo = new QQSongInfo()
         {
             Id = id,
             DirectUrl = GetDirectUrlByMid(id),
             CoverUrl = String.IsNullOrWhiteSpace(node["album"]["mid"].ToString()) ? null : "http://y.gtimg.cn/music/photo_new/T002R300x300M000" + node["album"]["mid"] + ".jpg",
             Platform = PlatformType.QQ,
-            MVUrl = null,
-            RawLyrics = null,
             Name =   node["name"].ToString(),
             Author =  node["name"].AsArray().ToList().Select(sp => sp["name"].ToString()).ToArray(),
-            SongLength = null,
-            Comment = null,
             Album = String.IsNullOrWhiteSpace(node["album"]["name"].ToString()) ? null : node["album"]["name"].ToString()
         };
         return null;
@@ -98,18 +94,14 @@ public class QQ : GenericClient
         foreach (var node in jsonArray)
         {
             if (GetDirectUrlByMid(node["mid"].ToString()) == null) continue;
-            SongInfo songInfo = new SongInfo()
+            SongInfo songInfo = new QQSongInfo()
             {
                 Id = node["mid"].ToString(),
                 DirectUrl = GetDirectUrlByMid(node["mid"].ToString()),
                 CoverUrl = String.IsNullOrWhiteSpace(node["album"]["mid"].ToString()) ? null : "http://y.gtimg.cn/music/photo_new/T002R300x300M000" + node["album"]["mid"] + ".jpg",
                 Platform = PlatformType.QQ,
-                MVUrl = null,
-                RawLyrics = null,
                 Name = node["name"].ToString(),
                 Author = node["singer"].AsArray().ToList().Select(sp => sp["name"].ToString()).ToArray(),
-                SongLength = null,
-                Comment = null,
                 Album = String.IsNullOrWhiteSpace(node["album"]["name"].ToString()) ? null :  node["album"]["name"].ToString()
             };
             songInfos.Add(songInfo);
@@ -164,18 +156,14 @@ public class Cursor : IMusicListCursor
         foreach (var node in jsonArray)
         {
             if (QQ.GetDirectUrlByMid(node["mid"].ToString()) == null) continue;
-            SongInfo songInfo = new SongInfo()
+            SongInfo songInfo = new QQSongInfo()
             {
                 Id = node["mid"].ToString(),
                 DirectUrl = QQ.GetDirectUrlByMid(node["mid"].ToString()),
                 CoverUrl = String.IsNullOrWhiteSpace(node["album"]["mid"].ToString()) ? null : "http://y.gtimg.cn/music/photo_new/T002R300x300M000" + node["album"]["mid"] + ".jpg",
                 Platform = PlatformType.QQ,
-                MVUrl = null,
-                RawLyrics = null,
                 Name = node["name"].ToString(),
                 Author = node["singer"].AsArray().ToList().Select(sp => sp["name"].ToString()).ToArray(),
-                SongLength = null,
-                Comment = null,
                 Album = String.IsNullOrWhiteSpace(node["album"]["name"].ToString()) ? null :  node["album"]["name"].ToString()
             };
             songInfos.Add(songInfo);
