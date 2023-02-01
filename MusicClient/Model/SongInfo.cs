@@ -48,11 +48,6 @@ public abstract class SongInfo
     public PlatformType Platform { get; init; }
 
     /// <summary>
-    /// 歌曲时长
-    /// </summary>
-    public abstract TimeSpan? GetSongLength();
-
-    /// <summary>
     /// 歌曲的评论，尽量提供
     /// </summary>
     public abstract Comment? GetComment();
