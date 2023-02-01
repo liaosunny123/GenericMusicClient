@@ -4,6 +4,7 @@ namespace MusicClient.Platform;
 
 public class Netease : GenericClient
 {
+    
     private Netease()
     {
     }

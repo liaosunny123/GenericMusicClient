@@ -5,7 +5,7 @@ namespace MusicClient.Model;
 /// <summary>
 /// 歌曲实例
 /// </summary>
-public class SongInfo
+public abstract class SongInfo
 {
     /// <summary>
     /// 歌曲 Id，具有平台区分性
@@ -18,19 +18,14 @@ public class SongInfo
     public string DirectUrl { get; init; }
 
     /// <summary>
-    /// 歌曲封面的 Url 直链地址
-    /// </summary>
-    public string? CoverUrl { get; init; }
-
-    /// <summary>
     /// 歌曲附属的 MV 地址
     /// </summary>
-    public string? MVUrl { get; init; }
+    public abstract string? GetMVUrl();
 
     /// <summary>
     /// 纯文本歌词
     /// </summary>
-    public string? RawLyrics { get; init; }
+    public abstract string? GetRawLyrics();
 
     /// <summary>
     /// 歌曲的名字
@@ -45,7 +40,7 @@ public class SongInfo
     /// <summary>
     /// 歌曲的专辑
     /// </summary>
-    public string Album { get; init; }
+    public string? Album { get; init; }
 
     /// <summary>
     /// 歌曲的所属平台
@@ -55,10 +50,15 @@ public class SongInfo
     /// <summary>
     /// 歌曲时长
     /// </summary>
-    public TimeSpan? SongLength { get; init; }
+    public abstract TimeSpan? GetSongLength();
 
     /// <summary>
     /// 歌曲的评论，尽量提供
     /// </summary>
-    public Comment? Comment { get; init; }
+    public abstract Comment? GetComment();
+
+    /// <summary>
+    /// 歌曲封面的 Url 直链地址
+    /// </summary>
+    public string? CoverUrl { get; init; }
 }

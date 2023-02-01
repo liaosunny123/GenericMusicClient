@@ -32,7 +32,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=716e091f_002D22c9_002D4e03_002D8c86_002D1563cd63a586/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from JsonParametercs.cs #28" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;8C065BB0-A598-44BB-9A35-A6255602BEBF/f:JsonParametercs.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=757b5f6f_002D2c21_002D446e_002D87b5_002D18dbce56b985/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from JsonParametercs.cs #33" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=757b5f6f_002D2c21_002D446e_002D87b5_002D18dbce56b985/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from JsonParametercs.cs #33" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;8C065BB0-A598-44BB-9A35-A6255602BEBF/f:JsonParametercs.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7a6cb7b3_002Dbc92_002D438d_002D9c40_002Ddcb4851a2651/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from JsonParametercs.cs #23" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -92,9 +92,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fa32f1cf_002D89d0_002D4cc8_002D855d_002Db93df0282560/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from JsonParametercs.cs #11" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;8C065BB0-A598-44BB-9A35-A6255602BEBF/f:JsonParametercs.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fd2df0da_002D677f_002D4c90_002D870a_002D3ecba64da0ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from JsonParametercs.cs #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fd2df0da_002D677f_002D4c90_002D870a_002D3ecba64da0ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from JsonParametercs.cs #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;8C065BB0-A598-44BB-9A35-A6255602BEBF/f:JsonParametercs.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fe4f5cb3_002D338e_002D4a62_002D9d57_002D391ceaac8b35/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from JsonParametercs.cs #25" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;ProjectFile&gt;8C065BB0-A598-44BB-9A35-A6255602BEBF/f:JsonParametercs.cs&lt;/ProjectFile&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+	</wpf:ResourceDictionary>
