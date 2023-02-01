@@ -4,7 +4,7 @@ public class QQComment : Comment
 {
     public override bool Next()
     {
-        throw new NotImplementedException();
+        return false;
     }
 
     public override void NavigateTo(int pageIndex)
