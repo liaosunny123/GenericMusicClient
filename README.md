@@ -26,5 +26,18 @@ list.ForEach(sp =>
 ```
 以网易云为例子：
 ```csharp
+var s = "Hope";
+        MusicClient mc = new(PlatformType.Netease);
+        var r = mc.GetByName(s);
+        foreach (var item in r)
+        {
+            Console.WriteLine(item.Name + ":" + item.DirectUrl);
+        }
 ```
-        
+输出:
+```
+Hope:Sick Boy
+Hope:?
+安室奈美惠 - Hope（海贼王One Piece OP20）:2017十月动漫新番歌曲合集Vol.2
+......
+```
