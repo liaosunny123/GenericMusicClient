@@ -13,19 +13,19 @@ public abstract class SongInfo
     public string Id { get; init; }
 
     /// <summary>
-    /// 歌曲直链地址
+    /// 歌曲直链地址，音质为默认音质
     /// </summary>
     public string DirectUrl { get; init; }
 
     /// <summary>
     /// 歌曲附属的 MV 地址
     /// </summary>
-    public abstract string? GetMVUrl();
+    public abstract Task<string?> GetMVUrl(VideoType videoType = VideoType.WebUrl);
 
     /// <summary>
     /// 纯文本歌词
     /// </summary>
-    public abstract string? GetRawLyrics();
+    public abstract Task<string?> GetRawLyrics(LyricType lyricType = LyricType.Origin);
 
     /// <summary>
     /// 歌曲的名字
@@ -48,17 +48,19 @@ public abstract class SongInfo
     public PlatformType Platform { get; init; }
 
     /// <summary>
-    /// 歌曲时长
-    /// </summary>
-    public abstract TimeSpan? GetSongLength();
-
-    /// <summary>
     /// 歌曲的评论，尽量提供
     /// </summary>
-    public abstract Comment? GetComment();
+    public abstract Task<Comment?> GetComment();
 
     /// <summary>
     /// 歌曲封面的 Url 直链地址
     /// </summary>
     public string? CoverUrl { get; init; }
+
+    /// <summary>
+    /// 根据音质选择直链
+    /// </summary>
+    /// <param name="musicType"></param>
+    /// <returns></returns>
+    public abstract Task<string?> GetDirectUrl(MusicType musicType = MusicType.Auto);
 }

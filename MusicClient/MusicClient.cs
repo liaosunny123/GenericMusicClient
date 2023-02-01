@@ -1,5 +1,6 @@
 ﻿using MusicClient.Model;
 using MusicClient.Enums;
+using MusicClient.Interface;
 using MusicClient.Platform;
 
 namespace MusicClient;
@@ -20,17 +21,19 @@ public class MusicClient
             PlatformType.KuGou => KuGou.Instance,
             PlatformType.QQ => QQ.Instance,
             PlatformType.XiaMi => XiaMi.Instance,
-            _ => throw new NotSupportedException("Do not support this type")
+            _ => throw new NotSupportedException(
+                "Do not support this platform type.\n" +
+                "Please submit a issue at https://github.com/liaosunny123/GenericMusicClient if needed.")
         };
 
-    public SongInfo GetById(string id)
+    public async Task<SongInfo?> GetById(string id)
     {
-        return this._genericClient.GetById(id);
+        return await this._genericClient.GetById(id);
     }
 
-    public List<SongInfo> GetByName(string name)
+    public async Task<List<SongInfo>> GetByName(string name)
     {
-        return this._genericClient.GetByName(name);
+        return await this._genericClient.GetByName(name);
     }
 
     public bool GetCursor(out IMusicListCursor musicListCursor,string name)

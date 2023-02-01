@@ -1,4 +1,5 @@
-﻿using MusicClient.Model;
+﻿using MusicClient.Interface;
+using MusicClient.Model;
 
 namespace MusicClient;
 
@@ -12,7 +13,7 @@ public abstract class GenericClient
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public abstract SongInfo? GetById(string id);
+    public abstract Task<SongInfo?> GetById(string id);
 
     /// <summary>
     /// 根据 Name 获取音乐的信息
@@ -20,7 +21,7 @@ public abstract class GenericClient
     /// </summary>
     /// <param name="name"></param>
     /// <returns></returns>
-    public abstract List<SongInfo> GetByName(string name);
+    public abstract Task<List<SongInfo>> GetByName(string name);
 
     /// <summary>
     /// 获取游标，若支持游标返回True并传出游标

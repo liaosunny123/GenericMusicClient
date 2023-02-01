@@ -1,6 +1,6 @@
 ﻿using MusicClient.Model;
 
-namespace MusicClient;
+namespace MusicClient.Interface;
 
 public interface IMusicPlatform
 {

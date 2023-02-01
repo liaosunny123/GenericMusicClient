@@ -1,6 +1,6 @@
 ﻿using MusicClient.Model;
 
-namespace MusicClient;
+namespace MusicClient.Interface;
 
 /// <summary>
 /// 分页游标
