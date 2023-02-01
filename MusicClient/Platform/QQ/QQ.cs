@@ -16,17 +16,18 @@ public class QQ : GenericClient
 
     public static QQ Instance { get; } = new QQ();
 
-    public override SongInfo? GetById(string id)
+    public override async Task<SongInfo?> GetById(string id)
     {
-        var response
-            = new HttpBuilder("https://u.y.qq.com")
+        var res
+            = await new HttpBuilder("https://u.y.qq.com")
                 .DefPath("/cgi-bin/musicu.fcg?format=json&data=%7B%22req_0%22%3A" +
                          "%7B%22module%22%3A%22music.pf_song_detail_svr%22%2C%22method%22%3" +
                          "A%22get_song_detail_yqq%22%2C%22param%22%3A%7B%22song_mid%22%3A%22" + id + "%22" +
                          "%7D%7D%2C%22comm%22%3A%7B%22uin%22%3A%221905222%22%2C%22format%22%3A%22json%22%2C" +
                          "%22ct%22%3A24%2C%22cv%22%3A0%7D%7D", Method.Get)
                 .DefDefaultEdgeUa()
-                .Execute().Content!;
+                .ExecuteAsync();
+        var response = res.Content!;
         if (response == null) return null;
         JsonNode jsonNode = JsonObject.Parse(response);
         if (jsonNode["code"].ToString() != "0") return null;
@@ -35,20 +36,20 @@ public class QQ : GenericClient
         SongInfo songInfo = new QQSongInfo()
         {
             Id = id,
-            DirectUrl = GetDirectUrlByMid(id),
+            DirectUrl = await GetDirectUrlByMid(id),
             CoverUrl = String.IsNullOrWhiteSpace(node["album"]["mid"].ToString()) ? null : "http://y.gtimg.cn/music/photo_new/T002R300x300M000" + node["album"]["mid"] + ".jpg",
             Platform = PlatformType.QQ,
             Name =   node["name"].ToString(),
             Author =  node["name"].AsArray().ToList().Select(sp => sp["name"].ToString()).ToArray(),
             Album = String.IsNullOrWhiteSpace(node["album"]["name"].ToString()) ? null : node["album"]["name"].ToString()
         };
-        return null;
+        return songInfo;
     }
 
-    public static string? GetDirectUrlByMid(string mid)
+    public static async Task<string?> GetDirectUrlByMid(string mid)
     {
         var response
-            = new HttpBuilder("https://u.y.qq.com")
+            = (await new HttpBuilder("https://u.y.qq.com")
                 .DefPath("/cgi-bin/musicu.fcg?format=json&data=%7B%22req_0%22%3A%7B%22module%22%3A%22" +
                          "vkey.GetVkeyServer%22%2C%22method%22%3A%22CgiGetVkey%22%2C%22param%22%3A%7B%22" +
                          "guid%22%3A%22358840384%22%2C%22songmid%22%3A%5B%22" + mid + "%22%5D%2C%22songtype%22%3A%5B" +
@@ -57,7 +58,7 @@ public class QQ : GenericClient
                          "22json%22%2C%22ct%22%3A24%2C%22cv%22%3A0%7D%7D", Method.Get)
                 .DefHost("u.y.qq.com")
                 .DefDefaultEdgeUa()
-                .Execute().Content;
+                .ExecuteAsync()).Content;
         if (response == null) return null;
         JsonNode jsonNode = JsonObject.Parse(response);
         if (jsonNode["code"].ToString() != "0") return null;
@@ -68,10 +69,9 @@ public class QQ : GenericClient
         return stringBuilder.Append(purl).ToString();
     }
     
-    public override List<SongInfo> GetByName(string name)
+    public override async Task<List<SongInfo>> GetByName(string name)
     {
-        
-        JsonNode jsonNode = JsonObject.Parse(GetResponse(name,1));
+        JsonNode jsonNode = JsonObject.Parse(await GetResponse(name,1));
         JsonArray jsonArray = jsonNode["music.search.SearchCgiService"]["data"]["body"]["song"]["list"].AsArray();
         List<SongInfo> songInfos = new List<SongInfo>();
         foreach (var node in jsonArray)
@@ -80,7 +80,7 @@ public class QQ : GenericClient
             SongInfo songInfo = new QQSongInfo()
             {
                 Id = node["mid"].ToString(),
-                DirectUrl = GetDirectUrlByMid(node["mid"].ToString()),
+                DirectUrl = await GetDirectUrlByMid(node["mid"].ToString()),
                 CoverUrl = String.IsNullOrWhiteSpace(node["album"]["mid"].ToString()) ? null : "http://y.gtimg.cn/music/photo_new/T002R300x300M000" + node["album"]["mid"] + ".jpg",
                 Platform = PlatformType.QQ,
                 Name = node["name"].ToString(),
@@ -98,8 +98,8 @@ public class QQ : GenericClient
         return true;
     }
 
-    public static string GetResponse(string name,int page)
-        =>  new HttpBuilder("https://u.y.qq.com/cgi-bin/musicu.fcg")
+    public static async Task<string> GetResponse(string name,int page)
+        =>  (await new HttpBuilder("https://u.y.qq.com/cgi-bin/musicu.fcg")
                   .DefPath("", Method.Post)
                   .DefHost("u.y.qq.com")
                   .DefReferer("https://y.qq.com")
@@ -116,6 +116,6 @@ public class QQ : GenericClient
                                 .EndAddJsonSubParameter()
                         .EndAddJsonSubParameter()
                     .EndAddJsonParameter()
-                  .Execute().Content!;
+                  .ExecuteAsync()).Content!;
 }
 

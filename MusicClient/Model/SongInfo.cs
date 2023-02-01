@@ -20,12 +20,12 @@ public abstract class SongInfo
     /// <summary>
     /// 歌曲附属的 MV 地址
     /// </summary>
-    public abstract string? GetMVUrl(VideoType videoType = VideoType.WebUrl);
+    public abstract Task<string?> GetMVUrl(VideoType videoType = VideoType.WebUrl);
 
     /// <summary>
     /// 纯文本歌词
     /// </summary>
-    public abstract string? GetRawLyrics(LyricType lyricType = LyricType.Origin);
+    public abstract Task<string?> GetRawLyrics(LyricType lyricType = LyricType.Origin);
 
     /// <summary>
     /// 歌曲的名字
@@ -50,7 +50,7 @@ public abstract class SongInfo
     /// <summary>
     /// 歌曲的评论，尽量提供
     /// </summary>
-    public abstract Comment? GetComment();
+    public abstract Task<Comment?> GetComment();
 
     /// <summary>
     /// 歌曲封面的 Url 直链地址
@@ -62,5 +62,5 @@ public abstract class SongInfo
     /// </summary>
     /// <param name="musicType"></param>
     /// <returns></returns>
-    public abstract string? GetDirectUrl(MusicType musicType = MusicType.Auto);
+    public abstract Task<string?> GetDirectUrl(MusicType musicType = MusicType.Auto);
 }

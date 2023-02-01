@@ -21,7 +21,7 @@ public class QQCursor : IMusicListCursor
     
     public List<SongInfo> GetByPage(int id)
     {
-        JsonNode jsonNode = JsonObject.Parse(QQ.GetResponse(keyword,id));
+        JsonNode jsonNode = JsonObject.Parse(QQ.GetResponse(keyword,id).Result);
         JsonArray jsonArray = jsonNode["music.search.SearchCgiService"]["data"]["body"]["song"]["list"].AsArray();
         List<SongInfo> songInfos = new List<SongInfo>();
         foreach (var node in jsonArray)
@@ -30,7 +30,7 @@ public class QQCursor : IMusicListCursor
             SongInfo songInfo = new QQSongInfo()
             {
                 Id = node["mid"].ToString(),
-                DirectUrl = QQ.GetDirectUrlByMid(node["mid"].ToString()),
+                DirectUrl = QQ.GetDirectUrlByMid(node["mid"].ToString()).Result,
                 CoverUrl = String.IsNullOrWhiteSpace(node["album"]["mid"].ToString()) ? null : "http://y.gtimg.cn/music/photo_new/T002R300x300M000" + node["album"]["mid"] + ".jpg",
                 Platform = PlatformType.QQ,
                 Name = node["name"].ToString(),

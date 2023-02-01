@@ -9,12 +9,12 @@ namespace MusicClient.Platform;
 public class QQSongInfo : SongInfo
 {
     
-    public override string? GetMVUrl(VideoType videoType = VideoType.WebUrl)
+    public override async Task<string?> GetMVUrl(VideoType videoType = VideoType.WebUrl)
     {
         return null;
     }
 
-    public override string? GetRawLyrics(LyricType lyricType = LyricType.Origin)
+    public override async Task<string?> GetRawLyrics(LyricType lyricType = LyricType.Origin)
     {
         var response
             = new HttpBuilder("https://c.y.qq.com")
@@ -26,12 +26,12 @@ public class QQSongInfo : SongInfo
         return Encoding.UTF8.GetString(Convert.FromBase64String(node["lyric"].ToString()));
     }
 
-    public override Comment? GetComment()
+    public override async Task<Comment?> GetComment()
     {
         throw new NotImplementedException();
     }
 
-    public override string? GetDirectUrl(MusicType musicType = MusicType.Auto)
+    public override async Task<string?> GetDirectUrl(MusicType musicType = MusicType.Auto)
     {
         return DirectUrl;
     }
