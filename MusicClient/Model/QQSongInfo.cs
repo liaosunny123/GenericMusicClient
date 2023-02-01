@@ -15,11 +15,6 @@ public class QQSongInfo : SongInfo
         throw new NotImplementedException();
     }
 
-    public override TimeSpan? GetSongLength()
-    {
-        throw new NotImplementedException();
-    }
-
     public override Comment? GetComment()
     {
         throw new NotImplementedException();
