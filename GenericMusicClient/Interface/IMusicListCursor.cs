@@ -1,6 +1,6 @@
-﻿using MusicClient.Model;
+﻿using GenericMusicClient.Model;
 
-namespace MusicClient.Interface;
+namespace GenericMusicClient.Interface;
 
 /// <summary>
 /// 分页游标

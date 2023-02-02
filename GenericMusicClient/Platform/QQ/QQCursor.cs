@@ -1,9 +1,9 @@
 ﻿using System.Text.Json.Nodes;
-using MusicClient.Enums;
-using MusicClient.Interface;
-using MusicClient.Platform;
+using GenericMusicClient.Enums;
+using GenericMusicClient.Interface;
+using GenericMusicClient.Model;
 
-namespace MusicClient.Model;
+namespace GenericMusicClient.Platform.QQ;
 
 public class QQCursor : IMusicListCursor
 {

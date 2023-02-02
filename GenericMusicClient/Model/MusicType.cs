@@ -1,4 +1,4 @@
-﻿namespace MusicClient.Model;
+﻿namespace GenericMusicClient.Model;
 
 public enum MusicType
 {

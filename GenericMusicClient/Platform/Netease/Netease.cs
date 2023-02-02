@@ -1,14 +1,16 @@
-﻿using MusicClient.Interface;
-using MusicClient.Model;
+using GenericMusicClient.Interface;
+using GenericMusicClient.Model;
 
-namespace MusicClient.Platform;
+namespace GenericMusicClient.Platform.Netease;
 
-public class XiaMi : GenericClient
+public class Netease : GenericClient
 {
-    private XiaMi()
+    
+    private Netease()
     {
     }
-    public static XiaMi Instance { get; } = new XiaMi();
+
+    public static Netease Instance { get; } = new Netease();
 
     public override Task<SongInfo?> GetById(string id)
     {

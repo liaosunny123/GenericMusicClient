@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using RestSharp;
 
-namespace MusicClient.Utils;
+namespace GenericMusicClient.Utils;
 
 public class JsonParameter
 {

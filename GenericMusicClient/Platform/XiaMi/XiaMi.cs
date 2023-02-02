@@ -1,15 +1,14 @@
-﻿using MusicClient.Interface;
-using MusicClient.Model;
+﻿using GenericMusicClient.Interface;
+using GenericMusicClient.Model;
 
-namespace MusicClient.Platform;
+namespace GenericMusicClient.Platform.XiaMi;
 
-public class KuGou : GenericClient
+public class XiaMi : GenericClient
 {
-    private KuGou()
+    private XiaMi()
     {
     }
-
-    public static KuGou Instance { get; } = new KuGou();
+    public static XiaMi Instance { get; } = new XiaMi();
 
     public override Task<SongInfo?> GetById(string id)
     {

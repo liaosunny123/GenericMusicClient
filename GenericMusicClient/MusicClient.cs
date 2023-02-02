@@ -1,9 +1,12 @@
-﻿using MusicClient.Model;
-using MusicClient.Enums;
-using MusicClient.Interface;
-using MusicClient.Platform;
+﻿using GenericMusicClient.Enums;
+using GenericMusicClient.Interface;
+using GenericMusicClient.Model;
+using GenericMusicClient.Platform.KuGou;
+using GenericMusicClient.Platform.Netease;
+using GenericMusicClient.Platform.QQ;
+using GenericMusicClient.Platform.XiaMi;
 
-namespace MusicClient;
+namespace GenericMusicClient;
 
 public class MusicClient
 {

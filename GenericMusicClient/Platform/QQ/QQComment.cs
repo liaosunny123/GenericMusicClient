@@ -1,4 +1,6 @@
-﻿namespace MusicClient.Model;
+﻿using GenericMusicClient.Model;
+
+namespace GenericMusicClient.Platform.QQ;
 
 public class QQComment : Comment
 {
@@ -9,6 +11,6 @@ public class QQComment : Comment
 
     public override void NavigateTo(int pageIndex)
     {
-        throw new NotImplementedException();
+        
     }
 }

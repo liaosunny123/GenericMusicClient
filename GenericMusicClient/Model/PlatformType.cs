@@ -1,4 +1,4 @@
-﻿namespace MusicClient.Enums;
+﻿namespace GenericMusicClient.Enums;
 
 public enum PlatformType
 {

@@ -1,6 +1,6 @@
-﻿using MusicClient.Model;
+﻿using GenericMusicClient.Model;
 
-namespace MusicClient.Interface;
+namespace GenericMusicClient.Interface;
 
 public interface IMusicPlatform
 {

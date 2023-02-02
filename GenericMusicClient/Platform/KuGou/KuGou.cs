@@ -1,16 +1,15 @@
-using MusicClient.Interface;
-using MusicClient.Model;
+﻿using GenericMusicClient.Interface;
+using GenericMusicClient.Model;
 
-namespace MusicClient.Platform;
+namespace GenericMusicClient.Platform.KuGou;
 
-public class Netease : GenericClient
+public class KuGou : GenericClient
 {
-    
-    private Netease()
+    private KuGou()
     {
     }
 
-    public static Netease Instance { get; } = new Netease();
+    public static KuGou Instance { get; } = new KuGou();
 
     public override Task<SongInfo?> GetById(string id)
     {

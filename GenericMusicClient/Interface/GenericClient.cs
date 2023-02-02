@@ -1,7 +1,7 @@
-﻿using MusicClient.Interface;
-using MusicClient.Model;
+﻿using GenericMusicClient.Interface;
+using GenericMusicClient.Model;
 
-namespace MusicClient;
+namespace GenericMusicClient;
 
 /// <summary>
 /// Client 接口

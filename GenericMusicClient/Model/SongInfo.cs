@@ -1,6 +1,6 @@
-﻿using MusicClient.Enums;
+﻿using GenericMusicClient.Enums;
 
-namespace MusicClient.Model;
+namespace GenericMusicClient.Model;
 
 /// <summary>
 /// 歌曲实例

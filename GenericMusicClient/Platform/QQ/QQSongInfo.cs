@@ -1,44 +1,55 @@
 ﻿using System.Text;
 using System.Text.Json.Nodes;
-using MusicClient.Model;
-using MusicClient.Utils;
+using GenericMusicClient.Model;
+using GenericMusicClient.Utils;
 using RestSharp;
 
-namespace MusicClient.Platform;
+namespace GenericMusicClient.Platform.QQ;
 
 public class QQSongInfo : SongInfo
 {
     
     public override async Task<string?> GetMVUrl(VideoType videoType = VideoType.WebUrl)
     {
-        var id = "s0034zewczm";
-        if (videoType == VideoType.WebUrl) return "https://y.qq.com/n/ryqq/mv/" + id;
+        if (videoType == VideoType.WebUrl) return "https://y.qq.com/n/ryqq/mv/" + Id;
         var response = (await new HttpBuilder("https://u.y.qq.com")
             .DefPath("/cgi-bin/musicu.fcg", Method.Post)
             .DefReferer("https://y.qq.com")
             .DefDefaultEdgeUa()
-            .AddJsonBody(
-                "{\"mvUrl\":{\"module\":\"music.stream.MvUrlProxy\",\"method\":\"GetMvUrls\",\"param\":{\"vids\":[\""+id+"\"],\"request_type\":10003,\"addrtype\":3,\"format\":264,\"maxFiletype\":60}}}")
+            .DefJsonParameter()
+            .AddJsonParameters("mvUrl")
+                .AddSubParameter("module","music.stream.MvUrlProxy")
+                .AddSubParameter("method","GetMvUrls")
+                .AddJsonParameters("param")
+                    .AddSubParameter("vids",new List<string>(){Id})
+                    .AddSubParameter("request_type",10003)
+                    .AddSubParameter("addrtype",3)
+                    .AddSubParameter("format",264)
+                    .AddSubParameter("maxFiletype",60)
+                    .EndAddJsonSubParameter()
+                .EndAddJsonSubParameter()
+            .EndAddJsonParameter()
             .ExecuteAsync()).Content!;
         if (String.IsNullOrWhiteSpace(response)) return null;
         var node = JsonNode.Parse(response);
         if (node["code"].ToString() == "500001") return null;
-        var nodes = node["mvUrl"]["data"][id]["mp4"].AsArray();
+        var nodes = node["mvUrl"]["data"][Id]["mp4"].AsArray();
+        if (nodes[1]["freeflow_url"].ToString() == "[]") return null;
         switch (videoType)
         {
             case VideoType.X4K:
-                return node[6] == null ? null : nodes[6]["freeflow_url"].AsArray()[0].ToString();
+                return nodes[6] == null ? null : nodes[6]["freeflow_url"].AsArray()[0].ToString();
             case VideoType.X2K:
-                return node[5] == null ? null : nodes[5]["freeflow_url"].AsArray()[0].ToString();
+                return nodes[5] == null ? null : nodes[5]["freeflow_url"].AsArray()[0].ToString();
             case VideoType.X1080P:
-                return node[4] == null ? null : nodes[4]["freeflow_url"].AsArray()[0].ToString();
+                return nodes[4] == null ? null : nodes[4]["freeflow_url"].AsArray()[0].ToString();
             case VideoType.X720P:
-                return node[3] == null ? null : nodes[3]["freeflow_url"].AsArray()[0].ToString();
+                return nodes[3] == null ? null : nodes[3]["freeflow_url"].AsArray()[0].ToString();
             case VideoType.X480P:
-                return node[2] == null ? null : nodes[2]["freeflow_url"].AsArray()[0].ToString();
+                return nodes[2] == null ? null : nodes[2]["freeflow_url"].AsArray()[0].ToString();
             case VideoType.X360P:
             case VideoType.XAuto:
-                return node[1] == null ? null : nodes[1]["freeflow_url"].AsArray()[0].ToString();
+                return nodes[1] == null ? null : nodes[1]["freeflow_url"].AsArray()[0].ToString();
             default:
                 throw new ArgumentOutOfRangeException(nameof(videoType), videoType, "Not support VideoType");
         }

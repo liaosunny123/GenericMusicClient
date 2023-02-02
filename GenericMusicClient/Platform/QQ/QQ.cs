@@ -1,12 +1,12 @@
 using System.Text;
 using System.Text.Json.Nodes;
-using MusicClient.Enums;
-using MusicClient.Interface;
-using MusicClient.Model;
-using MusicClient.Utils;
+using GenericMusicClient.Enums;
+using GenericMusicClient.Interface;
+using GenericMusicClient.Model;
+using GenericMusicClient.Utils;
 using RestSharp;
 
-namespace MusicClient.Platform;
+namespace GenericMusicClient.Platform.QQ;
 
 public class QQ : GenericClient
 {

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicClient", "MusicClient\MusicClient.csproj", "{52AD3E96-0A3D-4741-AEF6-431B259D6DC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMusicClient", "GenericMusicClient\GenericMusicClient.csproj", "{52AD3E96-0A3D-4741-AEF6-431B259D6DC5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicClientTest", "MusicClientTest\MusicClientTest.csproj", "{8C065BB0-A598-44BB-9A35-A6255602BEBF}"
 EndProject
