@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>GenericMusicClient</PackageId>
+        <Title>GenericMusicClient</Title>
+        <Authors>EpicMo,CAMB-Dev</Authors>
+        <Description>GenericMusicClient covering QQMusic, Netease, KuGou and etc.</Description>
+        <Copyright>https://github.com/liaosunny123/GenericMusicClient/blob/master/LICENSE</Copyright>
+        <PackageProjectUrl>https://github.com/liaosunny123/GenericMusicClient</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/liaosunny123/GenericMusicClient/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/liaosunny123/GenericMusicClient</RepositoryUrl>
+        <RepositoryType>Github</RepositoryType>
+        <PackageTags>musicclient,neteasemusicapi,kugou-music,qqmusicapi,musicapi</PackageTags>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <AssemblyVersion>0.0.2</AssemblyVersion>
+        <FileVersion>0.0.2</FileVersion>
+        <Version>1.0.2</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="RestSharp" Version="109.0.0-preview.1" />
+    </ItemGroup>
+
+</Project>

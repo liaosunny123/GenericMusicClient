@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MusicClient\MusicClient.csproj" />
+      <ProjectReference Include="..\GenericMusicClient\GenericMusicClient.csproj" />
     </ItemGroup>
 
 </Project>
