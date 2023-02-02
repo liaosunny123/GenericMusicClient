@@ -1,4 +1,6 @@
 # GenericMusicClient
+[![NuGet](https://img.shields.io/nuget/vpre/GenericMusicClient?style=flat&label=NuGet&color=9866ca)](https://www.nuget.org/packages/GenericMusicClient/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/GenericMusicClient?style=flat&label=Downloads&color=42a5f5)](https://www.nuget.org/packages/GenericMusicClient/)  
 GenericMusicClient covering QQMusic, Netease, KuGou and etc.  
 C#网易云音乐,QQ音乐,酷狗等等多平台API。  
 一个泛型的，集成了qq音乐，网易云，酷狗等在内的音乐NuGet库。  
