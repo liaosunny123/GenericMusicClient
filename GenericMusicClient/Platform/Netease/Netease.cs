@@ -94,8 +94,9 @@ public class Netease : GenericClient
             .AddQueryParameter("params", e["params"])
             .AddQueryParameter("encSecKey", e["encSecKey"])
             .ExecuteAsync();
+        if (String.IsNullOrWhiteSpace(r.Content)) return null;
+        JsonNode json = JsonNode.Parse(r.Content);
 
-        var json = JsonNode.Parse(r.Content);
         return new NeteaseSongInfo
         {
             Id = json["songs"][0]["id"].ToString(),

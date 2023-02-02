@@ -57,7 +57,7 @@ public class NeteaseSongInfo : SongInfo
             .AddQueryParameter("params", e["params"])
             .AddQueryParameter("encSecKey", e["encSecKey"])
             .ExecuteAsync();
-
+        if (r.Content == null) return null;
         var json = JsonNode.Parse(r.Content);
 
         var ret = new Dictionary<LyricType, string>();
