@@ -1,5 +1,4 @@
-﻿using GenericMusicClient.Enums;
-using GenericMusicClient.Interface;
+﻿using GenericMusicClient.Interface;
 using GenericMusicClient.Model;
 using GenericMusicClient.Platform.KuGou;
 using GenericMusicClient.Platform.Netease;

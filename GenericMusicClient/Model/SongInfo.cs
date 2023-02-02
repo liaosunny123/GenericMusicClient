@@ -1,6 +1,4 @@
-﻿using GenericMusicClient.Enums;
-
-namespace GenericMusicClient.Model;
+﻿namespace GenericMusicClient.Model;
 
 /// <summary>
 /// 歌曲实例

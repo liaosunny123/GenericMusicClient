@@ -1,6 +1,5 @@
 using System.Text;
 using System.Text.Json.Nodes;
-using GenericMusicClient.Enums;
 using GenericMusicClient.Interface;
 using GenericMusicClient.Model;
 using GenericMusicClient.Utils;
