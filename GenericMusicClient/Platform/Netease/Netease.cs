@@ -56,10 +56,9 @@ public class Netease : GenericClient
             .AddQueryParameter("params", e["params"])
             .AddQueryParameter("encSecKey", e["encSecKey"])
             .ExecuteAsync();
-
+        if (String.IsNullOrWhiteSpace(r.Content)) return new List<SongInfo>();
         var json = JsonNode.Parse(r.Content);
-
-        int.TryParse(json["result"]["songCount"].ToString(), out var count);
+        if (int.TryParse(json["result"]["songCount"].ToString(), out var count)) return new List<SongInfo>();
         var result = new List<SongInfo>();
         for (var i = 0; i < count; i++)
         {
